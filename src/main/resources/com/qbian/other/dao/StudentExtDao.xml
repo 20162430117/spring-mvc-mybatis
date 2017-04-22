@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qbian.other.dao.StudentExtDao">
+
+    <!-- 根据 sex 查询分页 student -->
+    <select id="queryBySexWithPage" resultMap="com.qbian.common.dao.StudentDao.studentMap">
+        SELECT
+            *
+        FROM
+            student
+        <where>
+            sex = #{sex}
+        </where>
+        ORDER BY
+            update_time DESC
+    </select>
+
+
+</mapper>
