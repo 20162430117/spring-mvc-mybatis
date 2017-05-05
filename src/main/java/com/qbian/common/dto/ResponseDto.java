@@ -23,6 +23,10 @@ public class ResponseDto<T> {
     public ResponseDto(MessageEnum messageEnum) {
         this.code = messageEnum.getCode();
         this.msg = messageEnum.getMsg();
+        if(messageEnum.getCode() == MessageEnum.PARAMS_EMPTY_ERROR.getCode()) {
+            String message = MessageEnum.PARAMS_EMPTY_ERROR.getMsg();
+            MessageEnum.PARAMS_EMPTY_ERROR.setMsg(message.split(":")[0] + ": {0}");
+        }
     }
 
     @Override
